@@ -1,0 +1,14 @@
+---
+ip_map:
+- { wg_ip: 2, ip: '10.254.1.100', host: "engine-ovirt." }
+- { wg_ip: 3, ip: '10.254.9.11' }
+- { wg_ip: 4, ip: '10.254.9.12' }
+- { wg_ip: 5, ip: '10.254.9.41' }
+- { wg_ip: 6, ip: '10.254.9.42' }
+- { wg_ip: 7, ip: '10.254.9.43' }
+- { wg_ip: 8, ip: '10.254.9.44' }
+- { wg_ip: 9, ip: '10.254.20.15', host: "hardware.icdc." }
+- { wg_ip: 10, ip: '10.254.20.17', host: "git.icdc." }
+- { wg_ip: 11, ip: '10.254.20.26', host: "crm.icdc." }
+- { wg_ip: 12, ip: '10.254.20.18', host: "git.iby." }
+wg_peer_locations: []

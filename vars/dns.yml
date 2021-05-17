@@ -1,0 +1,7 @@
+---
+file_zones:
+- { name: 'maximoaddons.com' }
+- { name: 'ibacloud.by', transfer: '194.158.198.131' }
+- { name: 'ibacloud.eu', transfer: '194.158.198.131' }
+- { name: 'd3.zby.icdc.io' }
+- { name: 'p3.zby.icdc.io' }

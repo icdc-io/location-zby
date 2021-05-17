@@ -1,0 +1,23 @@
+$ORIGIN ibacloud.by.
+@                      3600 SOA zby-ns.icdc.io. (
+                              admin.iba.by.           ; address of responsible party
+                              2020071517              ; serial number
+                              3600                    ; refresh period
+                              600                     ; retry period
+                              604800                  ; expire time
+                              1800                  ) ; minimum ttl
+                      86400 NS    zby-ns.icdc.io.
+                      86400 NS    ns.iba.by.
+                      86400 NS    sns.iba.by.
+                       3600 MX    10 fmail.iba.by.
+                        600 A     178.172.238.132
+www                    3600 CNAME ibacloud.by.
+status			600 A	  178.172.238.196
+support			600  A	  178.172.238.214
+;$ORIGIN dns.ibacloud.by.
+;ns                     3600 A     178.172.238.130
+;ns                     3600 A     178.172.238.131
+;$ORIGIN ns.dns.ibacloud.by.
+;ns1                    3600 A     178.172.238.130
+;ns2                    3600 A     178.172.238.131
+_acme-challenge         60   TXT    "BHBlKiWd_e9lFX8xaz4yAyyXArhgcdT-rAsHrsJWkY0"

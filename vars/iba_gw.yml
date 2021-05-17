@@ -1,0 +1,23 @@
+---
+web_routes:
+- host: git.icdc.io
+  servers:
+  - ip: 172.20.233.218
+- host: git.iby.zby.icdc.io
+  servers:
+  - ip: 172.20.233.218
+- host: registry.iby.zby.icdc.io
+  servers:
+  - ip: 172.20.233.233
+
+tcp_routes:
+- name: iba_ldap
+  port: 389
+  servers:
+  - ip: 172.20.227.138
+- name: test_git_database
+  port: 15432
+  servers:
+  - ip: 172.20.143.113
+    port: 5432
+

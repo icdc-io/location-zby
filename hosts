@@ -1,0 +1,79 @@
+[edge_servers]
+edge1 ansible_host=178.172.238.130
+edge2 ansible_host=178.172.238.131
+[edge_servers:vars]
+ansible_port=22000
+ansible_user=root
+
+[wireguard]
+wireguard-icdc ansible_host=10.254.20.5
+[wireguard:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_port=22
+ansible_user=root
+
+[etcd]
+etcd-1 ansible_host=10.254.20.12
+etcd-2 ansible_host=10.254.20.13
+etcd-3 ansible_host=10.254.20.14
+[etcd:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_port=22
+ansible_user=root
+
+[infra:children]
+etcd
+
+[iba_gw]
+iba-gw1 ansible_host=10.254.20.16
+[iba_gw:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_port=22
+ansible_user=root
+
+# HostedEngine is run locally only
+#[hosted_engine]
+#localhost
+
+[zabbix_servers]
+zabbix1 ansible_host=10.254.20.19
+[zabbix_servers:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_user=root
+ansible_port=22
+
+[zabbix_proxy]
+zbx_proxy ansible_host=10.254.20.69
+[zabbix_proxy:vars]
+ansible_ssh_common_args='-o ProxyJump=root@10.254.20.5'
+ansible_user=root
+ansible_port=22
+
+[ovirt_engine]
+engine-ovirt ansible_host=10.254.1.100
+[ovirt_engine:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_user=root
+
+
+[ovn]
+engine-ovirt ansible_host=10.254.1.100
+[ovn:vars]
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_port=22
+ansible_user=root
+
+[ovirt_hosts]
+ovih01 ansible_host=10.254.1.21
+ovih02 ansible_host=10.254.1.22
+ovih03 ansible_host=10.254.1.23
+#ovih04 ansible_host=10.254.1.24
+#ovih05 ansible_host=10.254.1.25
+[ovirt_hosts:vars]
+ansible_host_key_checking=false
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q root@178.172.238.130 -p 22000"'
+ansible_port=22
+ansible_user=root
+
+[haproxyapi_servers]
+haproxy-api ansible_host=10.254.20.0
