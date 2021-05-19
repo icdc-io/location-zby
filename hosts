@@ -1,3 +1,17 @@
+[data_switches]
+datasw-1 ansible_host=10.220.5.7
+datasw-2 ansible_host=10.220.5.8
+[data_switches:vars]
+ansible_port=22
+ansible_user=dsatsura
+#ansible_net_username=dsatsura
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=cisco.nxos.nxos
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q danix@172.20.12.104"'
+ansible_host_key_checking=false
+ansible_python_interpreter=/usr/bin/python
+
+
 [edge_servers]
 edge1 ansible_host=178.172.238.130
 edge2 ansible_host=178.172.238.131

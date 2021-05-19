@@ -1,0 +1,22 @@
+nodes:
+- name: ovih01
+  bond:
+    datasw-1:
+      port: Eth1/4
+    datasw-2:
+      port: Eth1/4
+    po_id: 21
+- name: ovih02
+  bond:
+    datasw-1:
+      port: Eth1/5
+    datasw-2:
+      port: Eth1/5
+    po_id: 22
+#- name: ovih03
+#  bond:
+#    datasw-1:
+#      port: Eth1/6
+#    datasw-2:
+#      port: Eth1/6
+#    po_id: 23
