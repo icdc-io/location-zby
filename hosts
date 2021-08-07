@@ -22,7 +22,7 @@ ansible_user=root
 [wireguard]
 wireguard-icdc ansible_host=10.254.20.5
 [wireguard:vars]
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000 -o StrictHostKeyChecking=no'
 ansible_port=22
 ansible_user=root
 
