@@ -1,0 +1,10 @@
+loc:
+  name: zby
+  timezone: Europe/Minsk
+  # No direct connection here
+  # asn: 64514
+  # hex_code used for MAC pool
+  hex_code: 26
+  # netid: 64
+  # wg_public_key: "FGRvMWwUcAqD2LdSN4rVKz6t+b5ukbDVL4H+yq7gPRM="
+# Define VMs and Hosts passwords
