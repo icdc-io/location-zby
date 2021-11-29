@@ -1,0 +1,41 @@
+$ORIGIN 28.254.10.in-addr.arpa.
+@                    3600 SOA ns.dns.zby.icdc.io. (
+                              hostmaster.zby.icdc.io. ; address of responsible party
+                              2020041714              ; serial number
+                              3600                    ; refresh period
+                              600                     ; retry period
+                              604800                  ; expire time
+                              1800                  ) ; minimum ttl
+                     86400 NS   ns1.ns.dns.zby.icdc.io.
+                     86400 NS   ns2.ns.dns.zby.icdc.io.
+                      3600 MX   10 fmail.iba.by.
+10			60 PTR	api.upi.lab.zby.icdc.io.
+10			60 PTR	api-int.upi.lab.zby.icdc.io.
+11			60 PTR	api-lb1.upi.lab.
+12			60 PTR	api-lb2.upi.lab.
+13			60 PTR	bootstrap.upi.lab.
+14			60 PTR	infra01.upi.lab.
+15			60 PTR	infra02.upi.lab.
+16			60 PTR	infra03.upi.lab.
+17			60 PTR	master01.upi.lab.
+18			60 PTR	master02.upi.lab.
+19			60 PTR	master03.upi.lab.
+20			60 PTR	worker01.upi.lab.
+21			60 PTR	worker02.upi.lab.
+22			60 PTR	worker03.upi.lab.
+;23                     60 PTR  api.dev.ocp.zby.icdc.io.
+23                      60 PTR  api-int.dev.ocp.zby.icdc.io.
+24                      60 PTR  api-lb1.dev.ocp.
+25                      60 PTR  api-lb2.dev.ocp.
+26                      60 PTR  bootstrap.dev.ocp.
+27                      60 PTR  infra01.dev.ocp.
+28                      60 PTR  infra02.dev.ocp.
+29                      60 PTR  infra03.dev.ocp.
+30                      60 PTR  master01.dev.ocp.
+31                      60 PTR  master02.dev.ocp.
+32                      60 PTR  master03.dev.ocp.
+33                      60 PTR  worker01.dev.ocp.
+34                      60 PTR  worker02.dev.ocp.
+35                      60 PTR  worker03.dev.ocp.
+50			60 PTR  dhcptest.dev.
+

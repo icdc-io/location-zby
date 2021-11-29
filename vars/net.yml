@@ -1,0 +1,161 @@
+---
+overlay: []
+#- name: sys_public
+#  desc: SYS Public network
+#  subnet: 10.254.20.0/24
+#  gateway: 10.254.20.1
+#  router: sys_default
+#- name: sys_openshift
+#  desc: SYS OpenShift network
+#  subnet: 10.254.28.0/24
+#  gateway: 10.254.28.1
+#  router: sys_default
+##########################
+# DirectConnect Networks #
+#- name: iba1d_direct
+#  desc: IBA1D DirectConnect network
+#  subnet: 10.222.0.0/20
+#  gateway: 10.222.0.1
+#  router: iba1d_default
+underlay:
+#- name: ipmi
+#  desc: IPMI Network
+#  vlan: 2540 
+#  subnet: 10.254.0.0/24
+#  gateway: 10.254.0.4
+#  router: sys
+#- name: mgmt
+#  desc: Virtualization Host Management Network
+#  vlan: 2541
+#  subnet: 10.254.1.0/24
+#  gateway: 10.254.1.1
+#  ovirt_name: ovirtmgmt
+#  vrf: sys
+#  prefix: ovn_ #TODO: rename network
+#- name: san
+#  desc: Storage Network for Ceph and Gluster
+#  purpose: [ gluster ]
+#  vlan: 2542
+#  subnet: 10.254.2.0/24
+#  gateway: 10.254.2.1
+#  vrf: sys
+#  prefix: ovn_ #TODO: rename network
+#- name: replica
+#  desc: Replication Network for Ceph
+#  vlan: 2543
+#  subnet: 10.254.3.0/24
+#  gateway: 10.254.3.1
+#  ovirt: false
+#  vrf: sys
+#- name: display
+#  desc: Display Network
+#  purpose: [ display ]
+#  vlan: 744
+#  subnet: 10.254.4.0/24
+#  gateway: 10.254.4.1
+#  vrf: sys
+#- name: migration
+#  desc: VM Migration Network
+#  purpose: [ migration ]
+#  vlan: 745
+#  subnet: 10.254.5.0/24
+#  gateway: 10.254.5.1
+#  vrf: sys
+## Special network connect to Account's infrastructure 
+#- name: account
+#  desc: Access to account networks
+#  vlan: 746
+#  subnet: 198.18.240.0/20
+#  gateway: 198.18.240.4
+#  hsrp_vip: 198.18.240.1
+#  router: sys_default
+#  vrf: sys
+
+# Internet
+- name: internet
+  desc: Internet Network
+  vrf: internet
+  # in ZBY it's not a VLAN-based
+  # vlan: 798
+  subnet: 178.172.238.128/27
+  reserved_ips: 1
+  gateway: 178.172.238.129
+# Shared Networking - manual config
+#  datasw-1:
+#    ipv4:
+#      address: 213.222.50.226/28
+#  datasw-2:
+#    ipv4:
+#      address: 213.222.50.227/28
+#  hsrp: 798
+#  hsrp_vip: 213.222.50.225
+#- name: uplink_bgp
+#  desc: BGP Uplink
+#  vrf: internet
+# No need to create oVirt network for BGP uplink as it's a pure hardware network
+#  ovirt: false
+#  vlan: 11
+#  subnet: 172.31.1.16/28
+#  gateway: 172.31.1.17
+#  datasw-1:
+#    ipv4:
+#      address: 172.31.1.28/28
+#  datasw-2:
+#    ipv4:
+#      address: 172.31.1.29/28
+#  hsrp: 11
+#  hsrp_vip: 172.31.1.30
+#  transit_routes:
+#  - 0.0.0.0/0
+
+
+####
+#- name: xby_uplink_2547
+#  desc: Transit Network for Internet Uplink
+#  vlan: 2547
+#  subnet: 10.254.7.0/24
+#  gateway: 10.254.7.1
+#  router: igw
+#  overlay_name: uplink_2547
+#  prefix: ovn_
+#  datasw-1:
+#    ipv4:
+#      address: 10.254.7.2/24
+#  datasw-2:
+#    ipv4:
+#      address: 10.254.7.3/24
+#  hsrp: 47
+#  hsrp_vip: 10.254.7.4
+#  transit_routes:
+#  - 178.172.238.192/26
+#  vrf: internet
+#- name: os_master
+#  desc: Openshift Master Nodes Network
+#  vlan: 2548
+#  subnet: 10.254.8.0/24
+#  gateway: 10.254.8.4
+#  router: sys
+#  overlay_name: os_master
+#- name: os_lb
+#  desc: Openshift Load Balancers Network
+#  vlan: 2549
+#  subnet: 10.254.9.0/24
+#  gateway: 10.254.9.4
+#  vrf: sys
+#- name: os_worker
+#  desc: Openshift Worker Nodes Network
+#  vlan: 2550
+#  subnet: 10.254.10.0/24
+#  gateway: 10.254.10.4
+#  vrf: sys
+
+# Transit networks connecting Account's OVN router and Account's VRF
+- name: service_500
+  desc: SYS Account Service Network
+  vlan: 500
+  purpose: [ account_service ]
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.4
+  hsrp_vip: 198.18.0.1
+  router: sys_default
+  vrf: sys

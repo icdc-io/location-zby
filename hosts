@@ -12,6 +12,34 @@ ansible_host_key_checking=false
 ansible_python_interpreter=/usr/bin/python
 
 
+############################################
+# Infrastructure Cluster
+# Runs CoreDNS
+# Configure IP addresses here, usually first 3 ip addresses from sys_public
+[infra]
+infra-1 ansible_host=10.254.20.12
+infra-2 ansible_host=10.254.20.13
+infra-3 ansible_host=10.254.20.14
+[infra:vars]
+# go through SSH via public IP
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_port=22
+ansible_user=root
+# You can override here DNS public address
+# [dns]
+# dns-external ansible_host=x.x.x.x
+
+
+
+
+
+
+
+
+
+
+# TODO: review
+
 [edge_servers]
 edge1 ansible_host=178.172.238.130
 edge2 ansible_host=178.172.238.131
@@ -34,9 +62,6 @@ etcd-3 ansible_host=10.254.20.14
 ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
 ansible_port=22
 ansible_user=root
-
-[infra:children]
-etcd
 
 [iba_gw]
 iba-gw1 ansible_host=10.254.20.16

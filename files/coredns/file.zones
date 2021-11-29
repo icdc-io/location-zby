@@ -1,0 +1,44 @@
+# Zone of P.Shkilionak
+# TODO: may be in some time it should be removed
+maximoaddons.com:53 {
+  file /etc/coredns/db.maximoaddons.com
+}
+# IBACloud zones
+# TODO: maybe better to move zones to XBY or ACZ ?
+ibacloud.by:53 {
+  file /etc/coredns/db.ibacloud.by
+  transfer {
+    to 194.158.198.131
+  }
+  errors
+  log
+}
+ibacloud.eu:53 {
+  file /etc/coredns/db.ibacloud.eu
+  transfer {
+    to 194.158.198.131
+  }
+}
+# Openshift zones
+d3.zby.icdc.io:53 {
+  file /etc/coredns/db.d3.zby.icdc.io
+}
+p3.zby.icdc.io:53 {
+  file /etc/coredns/db.p3.zby.icdc.io
+}
+okd.zby.icdc.io:53 {
+  file /etc/coredns/db.okd.zby.icdc.io
+}
+upi.lab.zby.icdc.io:53 {
+  file /etc/coredns/db.upi.lab.zby.icdc.io
+}
+ocp.zby.icdc.io:53 {
+  file /etc/coredns/db.ocp.zby.icdc.io
+}
+ipi.lab.zby.icdc.io:53 {
+  file /etc/coredns/db.ipi.lab.zby.icdc.io
+}
+# TODO: we should limit requests to reverse zone only to internal SYS IP subnets
+28.254.10.in-addr.arpa:53 {
+  file /etc/coredns/db.10.254.28
+}
