@@ -30,7 +30,28 @@ ansible_user=root
 # dns-external ansible_host=x.x.x.x
 
 
-
+#############################################
+# Cloud Gateway services
+#
+# SYS account cloudgw has special settings
+[sys_cloudgw_account]
+# cloudgw-d0416f1f ansible_host=198.18.240.5 cloudgw_id=d0416f1f-323f-4814-9cf1-64b8b898832d router_name=sys_default
+# New Cloud Gateway will be automatically added here
+[new_cloudgw_account]
+[new_cloudgw_account:children]
+#sys_cloudgw_account
+[new_cloudgw_account:vars]
+ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.sbg.icdc.io'
+ansible_port=22
+ansible_user=root
+# Move finalized cloud gateways here
+[cloudgw_account]
+[cloudgw_account:children]
+sys_cloudgw_account
+[cloudgw_account:vars]
+ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.sbg.icdc.io'
+ansible_port=22
+ansible_user=root
 
 
 

@@ -24,4 +24,6 @@ support		       3600 A	  178.172.238.214
 ;ns1                    3600 A     178.172.238.130
 ;ns2                    3600 A     178.172.238.131
 ;let's encrypted certificate
-_acme-challenge         60  TXT   "r-QwMPioCAZhHFYWTqI4IK_vN75OFDRJYa3ln124Ljk"
+;_acme-challenge         60  TXT   "r-QwMPioCAZhHFYWTqI4IK_vN75OFDRJYa3ln124Ljk"
+;let's encrypted certificate
+_acme-challenge         60  TXT   "mAtSuAGN0CNYMOmBbHVEh5GGv8yyKqFXF7U2p_0tQlc"
