@@ -4,13 +4,12 @@ datasw-2 ansible_host=10.220.5.8
 [data_switches:vars]
 ansible_port=22
 ansible_user=dsatsura
-#ansible_net_username=dsatsura
+# ansible_net_username=dsatsura
 ansible_connection=ansible.netcommon.network_cli
 ansible_network_os=cisco.nxos.nxos
-ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q danix@172.20.12.104"'
+ansible_ssh_common_args='-o ProxyCommand="ssh -o StrictHostKeyChecking=no -W %h:%p -q danix@172.20.12.104"'
 ansible_host_key_checking=false
 ansible_python_interpreter=/usr/bin/python
-
 
 ############################################
 # Infrastructure Cluster
@@ -22,12 +21,12 @@ infra-2 ansible_host=10.254.20.13
 infra-3 ansible_host=10.254.20.14
 [infra:vars]
 # go through SSH via public IP
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000'
 ansible_port=22
 ansible_user=root
 # You can override here DNS public address
-# [dns]
-# dns-external ansible_host=x.x.x.x
+[dns]
+dns-external ansible_host=178.172.238.130
 
 
 #############################################
@@ -35,25 +34,33 @@ ansible_user=root
 #
 # SYS account cloudgw has special settings
 [sys_cloudgw_account]
-# cloudgw-d0416f1f ansible_host=198.18.240.5 cloudgw_id=d0416f1f-323f-4814-9cf1-64b8b898832d router_name=sys_default
+cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6 router_name=sys_default
 # New Cloud Gateway will be automatically added here
 [new_cloudgw_account]
 [new_cloudgw_account:children]
-#sys_cloudgw_account
+# sys_cloudgw_account
 [new_cloudgw_account:vars]
-ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.sbg.icdc.io'
+#ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
 ansible_port=22
 ansible_user=root
 # Move finalized cloud gateways here
 [cloudgw_account]
+cloudgw-0f4ca015 ansible_host=198.18.240.6 cloudgw_id=0f4ca015-57ff-5593-859e-d20d7e46f17a
+cloudgw-d04484a4 ansible_host=198.18.240.7 cloudgw_id=d04484a4-85b5-539f-9c6d-356f72b65bf3
+cloudgw-240cd436 ansible_host=198.18.240.8 cloudgw_id=240cd436-6302-5ddd-83e4-bd5f6a6920e2
+cloudgw-75f9f4a7 ansible_host=198.18.240.9 cloudgw_id=75f9f4a7-fce7-532b-b079-58398e001a40
+cloudgw-3250b9f4 ansible_host=198.18.240.10 cloudgw_id=3250b9f4-d6cd-54fe-9c32-fc0b21179862
 [cloudgw_account:children]
 sys_cloudgw_account
 [cloudgw_account:vars]
-ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.sbg.icdc.io'
+ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
 ansible_port=22
 ansible_user=root
 
 
+[traefik_manager]
+traefik-manager-api # fake record required to deploy traefik config
 
 
 
@@ -112,16 +119,16 @@ ansible_port=22
 [ovirt_engine]
 engine-ovirt ansible_host=10.254.1.100
 [ovirt_engine:vars]
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000'
 ansible_user=root
 
 
-[ovn]
-engine-ovirt ansible_host=10.254.1.100
-[ovn:vars]
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
-ansible_port=22
-ansible_user=root
+#[ovn]
+#engine-ovirt ansible_host=10.254.1.100
+#[ovn:vars]
+#ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000'
+#ansible_port=22
+#ansible_user=root
 
 [ovirt_hosts]
 ovih01 ansible_host=10.254.1.21

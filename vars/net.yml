@@ -1,5 +1,5 @@
 ---
-overlay: []
+overlay:
 #- name: sys_public
 #  desc: SYS Public network
 #  subnet: 10.254.20.0/24
@@ -17,6 +17,27 @@ overlay: []
 #  subnet: 10.222.0.0/20
 #  gateway: 10.222.0.1
 #  router: iba1d_default
+# Service Network for virtual gateways and etc.
+- name: service_v001
+  desc: v001 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v002
+  desc: v002 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v003
+  desc: v003 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v004
+  desc: v004 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v005
+  desc: v005 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
 underlay:
 #- name: ipmi
 #  desc: IPMI Network
@@ -61,15 +82,15 @@ underlay:
 #  subnet: 10.254.5.0/24
 #  gateway: 10.254.5.1
 #  vrf: sys
-## Special network connect to Account's infrastructure 
-#- name: account
-#  desc: Access to account networks
-#  vlan: 746
-#  subnet: 198.18.240.0/20
-#  gateway: 198.18.240.4
-#  hsrp_vip: 198.18.240.1
+# Special network connect to Account's infrastructure 
+- name: account
+  desc: Access to account networks
+  vlan: 406
+  subnet: 198.18.240.0/20
+  gateway: 198.18.240.4
+  hsrp_vip: 198.18.240.1
 #  router: sys_default
-#  vrf: sys
+  vrf: sys
 
 # Internet
 - name: internet

@@ -8,7 +8,9 @@ maximoaddons.com:53 {
 ibacloud.by:53 {
   file /etc/coredns/db.ibacloud.by
   transfer {
-    to 194.158.198.131
+    to 194.158.198.131 # ns.iba.by
+    to 178.172.238.30 # sns.iba.by
+    to 82.209.247.131 # ns3.iba.by
   }
   errors
   log
@@ -16,7 +18,9 @@ ibacloud.by:53 {
 ibacloud.eu:53 {
   file /etc/coredns/db.ibacloud.eu
   transfer {
-    to 194.158.198.131
+    to 194.158.198.131 # ns.iba.by
+    to 178.172.238.30 # sns.iba.by
+    to 82.209.247.131 # ns3.iba.by
   }
 }
 # Openshift zones
