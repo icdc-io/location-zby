@@ -1,0 +1,16 @@
+---
+smtp:
+  authentication: "plain"
+  domain: "mail.icdc.io"
+  from: "bot@mail.icdc.io"
+  host: "smtp.yandex.ru"
+  password: "zggUHXES+!6hceTT"
+  port: 587
+  username: "bot@mail.icdc.io"
+  openssl_verify_mode: "none"
+  enable_starttls_auto: "true"
+oidc:
+  mode: "httpd"
+  httpd_tole: "true"
+  oidc_enabled: "true"
+  provider_type: "oidc"
