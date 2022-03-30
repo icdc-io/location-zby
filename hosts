@@ -144,3 +144,6 @@ ansible_user=root
 
 [haproxyapi_servers]
 haproxy-api ansible_host=10.254.20.0
+
+[oc_controller]
+localhost ansible_connection=local
