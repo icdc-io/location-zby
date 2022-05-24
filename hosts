@@ -34,33 +34,86 @@ dns-external ansible_host=178.172.238.130
 #
 # SYS account cloudgw has special settings
 [sys_cloudgw_account]
-cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6 router_name=sys_default
+cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6
 # New Cloud Gateway will be automatically added here
 [new_cloudgw_account]
-[new_cloudgw_account:children]
-# sys_cloudgw_account
-[new_cloudgw_account:vars]
-#ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
-ansible_port=22
-ansible_user=root
-# Move finalized cloud gateways here
-[cloudgw_account]
 cloudgw-0f4ca015 ansible_host=198.18.240.6 cloudgw_id=0f4ca015-57ff-5593-859e-d20d7e46f17a
 cloudgw-d04484a4 ansible_host=198.18.240.7 cloudgw_id=d04484a4-85b5-539f-9c6d-356f72b65bf3
 cloudgw-240cd436 ansible_host=198.18.240.8 cloudgw_id=240cd436-6302-5ddd-83e4-bd5f6a6920e2
 cloudgw-75f9f4a7 ansible_host=198.18.240.9 cloudgw_id=75f9f4a7-fce7-532b-b079-58398e001a40
 cloudgw-3250b9f4 ansible_host=198.18.240.10 cloudgw_id=3250b9f4-d6cd-54fe-9c32-fc0b21179862
-[cloudgw_account:children]
-sys_cloudgw_account
-[cloudgw_account:vars]
-ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
+[new_cloudgw_account:children]
+#sys_cloudgw_account
+#dev_cloudgw_account
+[new_cloudgw_account:vars]
+#ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
 ansible_port=22
 ansible_user=root
 
+# Development/Staging CloudGateways.
+# Config pulling requests comes through single SYS CloudGateway, so we have to differentiate
+# between ZBY Production requests and ZBY Staging requests.
+[dev_cloudgw_account]
+cloudgw-7cb85fee ansible_host=198.18.240.16 cloudgw_id=7cb85fee-b4fe-519e-a2b4-b4b455f9f40c
+cloudgw-49287dd0 ansible_host=198.18.240.17 cloudgw_id=49287dd0-6d50-54b7-8674-b3325ac1292d
+cloudgw-428d186c ansible_host=198.18.240.18 cloudgw_id=428d186c-40e2-5a5d-8258-fbe0e1ac53a4
+cloudgw-1d3455c4 ansible_host=198.18.240.19 cloudgw_id=1d3455c4-c64b-5d53-afa5-f5bc5f29bc4e
+cloudgw-011dd7c5 ansible_host=198.18.240.20 cloudgw_id=011dd7c5-6596-5e55-9663-0f2439b6c36f
+cloudgw-9ee38dc3 ansible_host=198.18.240.21 cloudgw_id=9ee38dc3-5fb0-5ce9-95fd-97f4e8b7faed
+cloudgw-55669303 ansible_host=198.18.240.22 cloudgw_id=55669303-4e0e-5ee2-88e1-294ed7610bce
+cloudgw-900a8de7 ansible_host=198.18.240.24 cloudgw_id=900a8de7-81a9-5ea0-8644-aa2c8976ae43
+cloudgw-8d331e1b ansible_host=198.18.240.25 cloudgw_id=8d331e1b-a8ce-50c0-8377-7a464539e411
+[dev_cloudgw_account:vars]
+wgm_env='-dev'
+tfm_env='-dev'
+
+# Move finalized cloud gateways here
+[cloudgw_account]
+cloudgw-0c4b147d ansible_host=198.18.240.11 cloudgw_id=0c4b147d-1ba1-55d5-b7a9-0c3ed0c3e33c
+cloudgw-1754f239 ansible_host=198.18.240.12 cloudgw_id=1754f239-ce0f-524b-aa22-033398d60f27
+cloudgw-1ad78845 ansible_host=198.18.240.13 cloudgw_id=1ad78845-029b-5b1a-816f-793baf3e8a6e
+cloudgw-366f161a ansible_host=198.18.240.14 cloudgw_id=366f161a-8f82-5feb-846c-9d6a0785a6af
+cloudgw-fcbd62c1 ansible_host=198.18.240.15 cloudgw_id=fcbd62c1-af64-5d6e-ab23-d80856bd0c9b
+[cloudgw_account:children]
+sys_cloudgw_account
+[cloudgw_account:vars]
+#ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
+ansible_port=22
+ansible_user=root
 
 [traefik_manager]
-traefik-manager-api # fake record required to deploy traefik config
+# For ZBY DEV environment:
+traefik-manager ansible_host=traefik-manager.icdc.d3.zby.icdc.io
+# For ZBY PROD environment:
+#traefik-manager ansible_host=traefik-manager.icdc.p3.zby.icdc.io
+
+[wireguard_manager]
+# For ZBY DEV environment:
+wireguard-manager ansible_host=wireguard-manager.icdc.d3.zby.icdc.io
+# For ZBY PROD environment:
+#wireguard-manager ansible_host=wireguard-manager.icdc.p3.zby.icdc.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,7 +131,7 @@ ansible_user=root
 [wireguard]
 wireguard-icdc ansible_host=10.254.20.5
 [wireguard:vars]
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:22000 -o StrictHostKeyChecking=no'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000 -o StrictHostKeyChecking=no'
 ansible_port=22
 ansible_user=root
 

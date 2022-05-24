@@ -18,6 +18,11 @@ overlay:
 #  gateway: 10.222.0.1
 #  router: iba1d_default
 # Service Network for virtual gateways and etc.
+- name: service_v000
+  desc: v000 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+  router: sys_default
 - name: service_v001
   desc: v001 OVN Service network
   subnet: 198.18.0.0/26
@@ -36,6 +41,67 @@ overlay:
   gateway: 198.18.0.1
 - name: service_v005
   desc: v005 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v006
+  desc: v006 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v007
+  desc: v007 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v008
+  desc: v008 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v009
+  desc: v009 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_v010
+  desc: v010 OVN Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+# Staging/Development CloudGateways
+- name: service_x001
+  desc: x001 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x002
+  desc: x002 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x003
+  desc: x003 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x004
+  desc: x004 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x005
+  desc: x005 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x006
+  desc: x006 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x007
+  desc: x007 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x008
+  desc: x008 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x009
+  desc: x009 DEV Service network
+  subnet: 198.18.0.0/26
+  gateway: 198.18.0.1
+- name: service_x010
+  desc: x010 DEV Service network
   subnet: 198.18.0.0/26
   gateway: 198.18.0.1
 underlay:
@@ -178,5 +244,5 @@ underlay:
   subnet: 198.18.0.0/26
   gateway: 198.18.0.4
   hsrp_vip: 198.18.0.1
-  router: sys_default
+  router: service_500
   vrf: sys

@@ -16,7 +16,7 @@ $ORIGIN ibacloud.by.
 mail                     60 A     212.98.184.50
 www                    3600 CNAME ibacloud.by.
 status		       3600 A	  178.172.238.196
-support		       3600 A	  178.172.238.214
+support                600  CNAME support.xby.icdc.io.
 ;$ORIGIN dns.ibacloud.by.
 ;ns                     3600 A     178.172.238.130
 ;ns                     3600 A     178.172.238.131
@@ -24,4 +24,5 @@ support		       3600 A	  178.172.238.214
 ;ns1                    3600 A     178.172.238.130
 ;ns2                    3600 A     178.172.238.131
 ;let's encrypted certificate
-_acme-challenge         60  TXT   "mAtSuAGN0CNYMOmBbHVEh5GGv8yyKqFXF7U2p_0tQlc"
+_acme-challenge         60  TXT   "2I7JgxgCTQonXgtBZeXMrqBpCwoBIJuiVV4PLVeFVFY"
+_acme-challenge         60  TXT   "feWLg0aM81s9MNdLhr9q0t4ZBct9tnkE7cesCyOJv6E"
