@@ -1,5 +1,6 @@
 loc:
   name: zby
+  dn: zby.icdc.io
   timezone: Europe/Minsk
   # No direct connection here
   # asn: 64514
