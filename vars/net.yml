@@ -161,6 +161,7 @@ underlay:
 # Internet
 - name: internet
   desc: Internet Network
+  ovirt: false
   vrf: internet
   # in ZBY it's not a VLAN-based
   # vlan: 798

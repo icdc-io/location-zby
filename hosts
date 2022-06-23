@@ -37,14 +37,10 @@ dns-external ansible_host=178.172.238.130
 cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6
 # New Cloud Gateway will be automatically added here
 [new_cloudgw_account]
-cloudgw-0f4ca015 ansible_host=198.18.240.6 cloudgw_id=0f4ca015-57ff-5593-859e-d20d7e46f17a
-cloudgw-d04484a4 ansible_host=198.18.240.7 cloudgw_id=d04484a4-85b5-539f-9c6d-356f72b65bf3
-cloudgw-240cd436 ansible_host=198.18.240.8 cloudgw_id=240cd436-6302-5ddd-83e4-bd5f6a6920e2
-cloudgw-75f9f4a7 ansible_host=198.18.240.9 cloudgw_id=75f9f4a7-fce7-532b-b079-58398e001a40
-cloudgw-3250b9f4 ansible_host=198.18.240.10 cloudgw_id=3250b9f4-d6cd-54fe-9c32-fc0b21179862
 [new_cloudgw_account:children]
 #sys_cloudgw_account
 #dev_cloudgw_account
+#cloudgw_account
 [new_cloudgw_account:vars]
 #ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
 ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
@@ -70,30 +66,38 @@ tfm_env='-dev'
 
 # Move finalized cloud gateways here
 [cloudgw_account]
+cloudgw-d04484a4 ansible_host=198.18.240.7 cloudgw_id=d04484a4-85b5-539f-9c6d-356f72b65bf3
+cloudgw-240cd436 ansible_host=198.18.240.8 cloudgw_id=240cd436-6302-5ddd-83e4-bd5f6a6920e2
+cloudgw-3250b9f4 ansible_host=198.18.240.10 cloudgw_id=3250b9f4-d6cd-54fe-9c32-fc0b21179862
 cloudgw-0c4b147d ansible_host=198.18.240.11 cloudgw_id=0c4b147d-1ba1-55d5-b7a9-0c3ed0c3e33c
+cloudgw-0f4ca015 ansible_host=198.18.240.6 cloudgw_id=0f4ca015-57ff-5593-859e-d20d7e46f17a
+cloudgw-75f9f4a7 ansible_host=198.18.240.9 cloudgw_id=75f9f4a7-fce7-532b-b079-58398e001a40
 cloudgw-1754f239 ansible_host=198.18.240.12 cloudgw_id=1754f239-ce0f-524b-aa22-033398d60f27
 cloudgw-1ad78845 ansible_host=198.18.240.13 cloudgw_id=1ad78845-029b-5b1a-816f-793baf3e8a6e
 cloudgw-366f161a ansible_host=198.18.240.14 cloudgw_id=366f161a-8f82-5feb-846c-9d6a0785a6af
 cloudgw-fcbd62c1 ansible_host=198.18.240.15 cloudgw_id=fcbd62c1-af64-5d6e-ab23-d80856bd0c9b
-[cloudgw_account:children]
-sys_cloudgw_account
 [cloudgw_account:vars]
 #ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
 ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
 ansible_port=22
 ansible_user=root
 
+# Fake records required to deploy traefik config
 [traefik_manager]
 # For ZBY DEV environment:
-traefik-manager ansible_host=traefik-manager.icdc.d3.zby.icdc.io
+#traefik-manager ansible_host=traefik-manager.icdc.d3.zby.icdc.io
 # For ZBY PROD environment:
-#traefik-manager ansible_host=traefik-manager.icdc.p3.zby.icdc.io
+traefik-manager ansible_host=traefik-manager.icdc.p3.zby.icdc.io
 
 [wireguard_manager]
 # For ZBY DEV environment:
-wireguard-manager ansible_host=wireguard-manager.icdc.d3.zby.icdc.io
+#wireguard-manager ansible_host=wireguard-manager.icdc.d3.zby.icdc.io
 # For ZBY PROD environment:
-#wireguard-manager ansible_host=wireguard-manager.icdc.p3.zby.icdc.io
+wireguard-manager ansible_host=wireguard-manager.icdc.p3.zby.icdc.io
+
+[etcd_dns]
+etcd-dns
+# End of fake traefic records
 
 
 
