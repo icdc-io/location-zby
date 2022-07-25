@@ -18,4 +18,5 @@ wg_map:
 - { wg_ip: 15, ip: '10.254.28.23', host: "okd-ocp-dev" }
 - { wg_ip: 16, ip: '10.254.20.44', host: "crm-dev" }
 - { wg_ip: 17, ip: '10.254.20.28', host: "elk" }
+- { wg_ip: 18, ip: '10.254.1.120', host: "engine-ovirt.sys.vpn.tby" }
 wg_peer_locations: []
