@@ -11,6 +11,61 @@ ansible_ssh_common_args='-o ProxyCommand="ssh -o StrictHostKeyChecking=no -W %h:
 ansible_host_key_checking=false
 ansible_python_interpreter=/usr/bin/python
 
+## Out-of-Band Management (OOBM)
+## aka Lights-Out Management (LOM)
+## vendor implementations: iDRAC, iLO, IMM
+[ovih_oobm]
+ovih01-oobm ansible_host=10.220.5.141
+ovih02-oobm ansible_host=10.220.5.142
+ovih03-oobm ansible_host=10.220.5.143
+[ovih_oobm:vars]
+#user_oobm=root
+
+[ceph_oobm]
+ceph01-oobm ansible_host=10.220.5.151
+ceph02-oobm ansible_host=10.220.5.152
+ceph03-oobm ansible_host=10.220.5.153
+
+## Operating System Management
+## used to configure OS with ansible
+
+[ovih_osm]
+ovih01-osm ansible_host=10.220.5.161 # he_lun_id=36001405ac976a70d1324298b64382144
+ovih02-osm ansible_host=10.220.5.162
+ovih03-osm ansible_host=10.220.5.163
+[ovih_osm:vars]
+#os_disk=sda
+interface=eno1
+netmask=255.255.255.0
+gateway=10.220.5.1
+#ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104'
+ansible_port=22
+ansible_user=root
+use_lldp=no
+bonds_ifs='{"bond0":["ens2f0","ens2f1"]}'
+bonds_vlans='{"bond0":[2541,2542]}'
+
+[ceph_fast_osm]
+ceph01-osm ansible_host=10.220.5.171
+ceph02-osm ansible_host=10.220.5.172
+ceph03-osm ansible_host=10.220.5.173
+[ceph_fast_osm:vars]
+use_lldp=no
+bonds_ifs='{"bond0":["ens1f0","ens1f1"]}'
+bonds_vlans='{"bond0":[2541,2542,2543]}'
+
+[ceph_osm:children]
+ceph_fast_osm
+[ceph_osm:vars]
+#os_disk=sda
+interface=eno1
+netmask=255.255.255.0
+gateway=10.220.5.1
+#ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104'
+ansible_port=22
+ansible_user=root
+
+
 ############################################
 # Infrastructure Cluster
 # Runs CoreDNS
