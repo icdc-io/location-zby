@@ -18,6 +18,7 @@ ansible_python_interpreter=/usr/bin/python
 ovih01-oobm ansible_host=10.220.5.141
 ovih02-oobm ansible_host=10.220.5.142
 ovih03-oobm ansible_host=10.220.5.143
+ovih04-oobm ansible_host=10.220.5.144
 [ovih_oobm:vars]
 #user_oobm=root
 
@@ -33,12 +34,13 @@ ceph03-oobm ansible_host=10.220.5.153
 ovih01-osm ansible_host=10.220.5.161 # he_lun_id=36001405ac976a70d1324298b64382144
 ovih02-osm ansible_host=10.220.5.162
 ovih03-osm ansible_host=10.220.5.163
+ovih04-osm ansible_host=10.220.5.164
 [ovih_osm:vars]
 #os_disk=sda
 interface=eno1
 netmask=255.255.255.0
 gateway=10.220.5.1
-#ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104'
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104'
 ansible_port=22
 ansible_user=root
 use_lldp=no
@@ -65,6 +67,64 @@ gateway=10.220.5.1
 ansible_port=22
 ansible_user=root
 
+## oVirt interfaces
+[ovirt_engine]
+engine-ovirt ansible_host=10.254.1.100
+[ovirt_engine:vars]
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+ansible_port=22
+ansible_user=root
+# here we should define full hostname
+[ovirt_engine_osm]
+engine-ovirt.zby.icdc.io ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+
+[ovih_he_mgmt]
+ovih01-mgmt ansible_host=10.254.1.21
+ovih02-mgmt ansible_host=10.254.1.22
+ovih03-mgmt ansible_host=10.254.1.23
+ovih04-mgmt ansible_host=10.254.1.24
+[ovih_he_mgmt:vars]
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+ansible_port=22
+ansible_user=root
+
+[ovih_mgmt:children]
+ovih_he_mgmt
+[ovih_mgmt]
+[ovih_mgmt:vars]
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+ansible_port=22
+ansible_user=root
+
+[ovih_he_san]
+ovih01-san ansible_host=10.254.2.21
+ovih02-san ansible_host=10.254.2.22
+ovih03-san ansible_host=10.254.2.23
+ovih04-san ansible_host=10.254.2.24
+[ovih_he_san:vars]
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+ansible_port=22
+ansible_user=root
+
+[ovih_san:children]
+ovih_he_san
+[ovih_san]
+[ovih_san:vars]
+ansible_ssh_common_args='-o ProxyJump=sshproxy@172.20.12.104,root@10.220.5.161'
+ansible_port=22
+ansible_user=root
+
+[ovih_display]
+ovih01-display ansible_host=10.254.4.21
+ovih02-display ansible_host=10.254.4.22
+ovih03-display ansible_host=10.254.4.23
+ovih04-display ansible_host=10.254.4.24
+
+[ovih_migration]
+ovih01-migration ansible_host=10.254.5.21
+ovih02-migration ansible_host=10.254.5.22
+ovih03-migration ansible_host=10.254.5.23
+ovih04-migration ansible_host=10.254.5.24
 
 ############################################
 # Infrastructure Cluster
@@ -228,12 +288,6 @@ ansible_ssh_common_args='-o ProxyJump=root@10.254.20.5'
 ansible_user=root
 ansible_port=22
 
-[ovirt_engine]
-engine-ovirt ansible_host=10.254.1.100
-[ovirt_engine:vars]
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000'
-ansible_user=root
-
 
 #[ovn]
 #engine-ovirt ansible_host=10.254.1.100
@@ -246,7 +300,7 @@ ansible_user=root
 ovih01 ansible_host=10.254.1.21
 ovih02 ansible_host=10.254.1.22
 ovih03 ansible_host=10.254.1.23
-#ovih04 ansible_host=10.254.1.24
+ovih04 ansible_host=10.254.1.24
 #ovih05 ansible_host=10.254.1.25
 [ovirt_hosts:vars]
 ansible_host_key_checking=false

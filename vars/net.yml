@@ -111,22 +111,23 @@ underlay:
 #  subnet: 10.254.0.0/24
 #  gateway: 10.254.0.4
 #  router: sys
-#- name: mgmt
-#  desc: Virtualization Host Management Network
-#  vlan: 2541
-#  subnet: 10.254.1.0/24
-#  gateway: 10.254.1.1
-#  ovirt_name: ovirtmgmt
-#  vrf: sys
-#  prefix: ovn_ #TODO: rename network
-#- name: san
-#  desc: Storage Network for Ceph and Gluster
-#  purpose: [ gluster ]
-#  vlan: 2542
-#  subnet: 10.254.2.0/24
-#  gateway: 10.254.2.1
-#  vrf: sys
-#  prefix: ovn_ #TODO: rename network
+- name: mgmt
+  desc: Virtualization Host Management Network
+  vlan: 2541
+  subnet: 10.254.1.0/24
+  gateway: 10.254.1.1
+  ovirt_name: ovirtmgmt
+  vrf: sys
+  prefix: ovn_ #TODO: rename network
+- name: san
+  desc: Storage Network for Ceph and Gluster
+  purpose: [ gluster ]
+  vlan: 2542
+  subnet: 10.254.2.0/24
+  gateway: 10.254.2.1
+  ovirt_name: zby_san
+  vrf: sys
+  prefix: ovn_ #TODO: rename network
 #- name: replica
 #  desc: Replication Network for Ceph
 #  vlan: 2543
@@ -134,20 +135,24 @@ underlay:
 #  gateway: 10.254.3.1
 #  ovirt: false
 #  vrf: sys
-#- name: display
-#  desc: Display Network
-#  purpose: [ display ]
-#  vlan: 744
-#  subnet: 10.254.4.0/24
-#  gateway: 10.254.4.1
-#  vrf: sys
-#- name: migration
-#  desc: VM Migration Network
-#  purpose: [ migration ]
-#  vlan: 745
-#  subnet: 10.254.5.0/24
-#  gateway: 10.254.5.1
-#  vrf: sys
+- name: display
+  desc: Display Network
+  purpose: [ display ]
+  vlan: 2544
+  subnet: 10.254.4.0/24
+  gateway: 10.254.4.1
+  ovirt_name: zby_display
+  vrf: sys
+  prefix: ovn_ #TODO: rename network
+- name: migration
+  desc: VM Migration Network
+  purpose: [ migration ]
+  vlan: 2545
+  subnet: 10.254.5.0/24
+  gateway: 10.254.5.1
+  ovirt_name: zby_migration
+  vrf: sys
+  prefix: ovn_ #TODO: rename network
 # Special network connect to Account's infrastructure 
 - name: account
   desc: Access to account networks
@@ -164,7 +169,7 @@ underlay:
   ovirt: false
   vrf: internet
   # in ZBY it's not a VLAN-based
-  # vlan: 798
+  vlan: 407
   subnet: 178.172.238.128/27
   reserved_ips: 1
   gateway: 178.172.238.129
