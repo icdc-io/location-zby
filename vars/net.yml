@@ -203,14 +203,14 @@ underlay:
 
 
 ####
-#- name: xby_uplink_2547
-#  desc: Transit Network for Internet Uplink
-#  vlan: 2547
-#  subnet: 10.254.7.0/24
-#  gateway: 10.254.7.1
-#  router: igw
-#  overlay_name: uplink_2547
-#  prefix: ovn_
+- name: uplink_2547
+  desc: Transit Network for Internet Uplink
+  vlan: 2547
+  subnet: 10.254.7.0/24
+  gateway: 10.254.7.1
+  router: igw
+  ovirt_name: zby_uplink_2547
+  prefix: ovn_
 #  datasw-1:
 #    ipv4:
 #      address: 10.254.7.2/24
@@ -220,27 +220,32 @@ underlay:
 #  hsrp: 47
 #  hsrp_vip: 10.254.7.4
 #  transit_routes:
-#  - 178.172.238.192/26
+#  - 178.172.238.128/26
 #  vrf: internet
-#- name: os_master
-#  desc: Openshift Master Nodes Network
-#  vlan: 2548
-#  subnet: 10.254.8.0/24
-#  gateway: 10.254.8.4
-#  router: sys
-#  overlay_name: os_master
-#- name: os_lb
-#  desc: Openshift Load Balancers Network
-#  vlan: 2549
-#  subnet: 10.254.9.0/24
-#  gateway: 10.254.9.4
-#  vrf: sys
-#- name: os_worker
-#  desc: Openshift Worker Nodes Network
-#  vlan: 2550
-#  subnet: 10.254.10.0/24
-#  gateway: 10.254.10.4
-#  vrf: sys
+- name: os_master
+  desc: Openshift Master Nodes Network
+  vlan: 2548
+  subnet: 10.254.8.0/24
+  gateway: 10.254.8.4
+  router: sys
+  ovirt_name: zby_os_master
+  prefix: ovn_ #TODO: rename network
+- name: os_lb
+  desc: Openshift Load Balancers Network
+  vlan: 2549
+  subnet: 10.254.9.0/24
+  gateway: 10.254.9.4
+  vrf: sys
+  ovirt_name: zby_os_lb
+  prefix: ovn_ #TODO: rename network
+- name: os_worker
+  desc: Openshift Worker Nodes Network
+  vlan: 2550
+  subnet: 10.254.10.0/24
+  gateway: 10.254.10.4
+  vrf: sys
+  ovirt_name: zby_os_worker
+  prefix: ovn_ #TODO: rename network
 
 # Transit networks connecting Account's OVN router and Account's VRF
 - name: service_500
