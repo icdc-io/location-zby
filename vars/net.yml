@@ -1,10 +1,11 @@
 ---
 overlay:
-#- name: sys_public
-#  desc: SYS Public network
-#  subnet: 10.254.20.0/24
-#  gateway: 10.254.20.1
-#  router: sys_default
+- name: icdc_edge
+  # TODO: rename to sys_base
+  desc: SYS Base network
+  subnet: 10.254.20.0/24
+  gateway: 10.254.20.1
+  router: sys_default
 #- name: sys_openshift
 #  desc: SYS OpenShift network
 #  subnet: 10.254.28.0/24
