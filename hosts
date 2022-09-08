@@ -162,12 +162,12 @@ cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-89
 # New Cloud Gateway will be automatically added here
 [new_cloudgw_account]
 [new_cloudgw_account:children]
-#sys_cloudgw_account
+sys_cloudgw_account
 #dev_cloudgw_account
 #cloudgw_account
 [new_cloudgw_account:vars]
 #ansible_ssh_common_args='-o ProxyJump=root@cloudgw.sys.vpn.zby.icdc.io'
-ansible_ssh_common_args='-o ProxyJump=root@178.172.238.131:22000,root@10.254.20.5'
+ansible_ssh_common_args='-o ProxyJump=root@178.172.238.130:2201 -o StrictHostKeyChecking=no'
 ansible_port=22
 ansible_user=root
 
