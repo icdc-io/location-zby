@@ -1,0 +1,22 @@
+---
+wg_subnet: 10.254.64.0/24
+# HOST.sys.vpn.LOC.icdc.io
+wg_map:
+- { wg_ip: 2, ip: '10.254.1.100', host: "engine-ovirt" }
+- { wg_ip: 3, ip: '10.254.9.11' }
+- { wg_ip: 4, ip: '10.254.9.12' }
+- { wg_ip: 5, ip: '10.254.9.41' }
+- { wg_ip: 6, ip: '10.254.9.42' }
+- { wg_ip: 7, ip: '10.254.9.43' }
+- { wg_ip: 8, ip: '10.254.9.44' }
+- { wg_ip: 9, ip: '10.254.20.15', host: "hardware" }
+- { wg_ip: 10, ip: '10.254.20.17', host: "git" }
+- { wg_ip: 11, ip: '10.254.20.26', host: "crm" }
+- { wg_ip: 12, ip: '10.254.20.18', host: "git.iby" }
+- { wg_ip: 13, ip: '10.254.20.19', host: "zabbix" }
+- { wg_ip: 14, ip: '10.254.28.10', host: "okd-lab-upi" }
+- { wg_ip: 15, ip: '10.254.28.23', host: "okd-ocp-dev" }
+- { wg_ip: 16, ip: '10.254.20.44', host: "crm-dev" }
+- { wg_ip: 17, ip: '10.254.20.28', host: "elk" }
+- { wg_ip: 18, ip: '10.254.1.120', host: "engine-ovirt.sys.vpn.tby" }
+wg_peer_locations: []

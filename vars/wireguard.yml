@@ -1,22 +1,224 @@
----
-wg_subnet: 10.254.64.0/24
-# HOST.sys.vpn.LOC.icdc.io
-wg_map:
-- { wg_ip: 2, ip: '10.254.1.100', host: "engine-ovirt" }
-- { wg_ip: 3, ip: '10.254.9.11' }
-- { wg_ip: 4, ip: '10.254.9.12' }
-- { wg_ip: 5, ip: '10.254.9.41' }
-- { wg_ip: 6, ip: '10.254.9.42' }
-- { wg_ip: 7, ip: '10.254.9.43' }
-- { wg_ip: 8, ip: '10.254.9.44' }
-- { wg_ip: 9, ip: '10.254.20.15', host: "hardware" }
-- { wg_ip: 10, ip: '10.254.20.17', host: "git" }
-- { wg_ip: 11, ip: '10.254.20.26', host: "crm" }
-- { wg_ip: 12, ip: '10.254.20.18', host: "git.iby" }
-- { wg_ip: 13, ip: '10.254.20.19', host: "zabbix" }
-- { wg_ip: 14, ip: '10.254.28.10', host: "okd-lab-upi" }
-- { wg_ip: 15, ip: '10.254.28.23', host: "okd-ocp-dev" }
-- { wg_ip: 16, ip: '10.254.20.44', host: "crm-dev" }
-- { wg_ip: 17, ip: '10.254.20.28', host: "elk" }
-- { wg_ip: 18, ip: '10.254.1.120', host: "engine-ovirt.sys.vpn.tby" }
-wg_peer_locations: []
+# ZBY, hex_code: 26, dec_code: 38
+# Required for client-auto-config
+location: zby
+public_key: MyV5VtvfNRe+lv8wEwUhsjIBw40VmNJuETXofrDHDCY=
+# VPN server config
+account: sys
+vpn:
+- name: icdc
+  port: 2200
+  ip: 10.253.38.1/24
+  devices:
+  - num: 2
+    name: dsatsura notebook
+    public_key: CgmnYEVMz4SLOWegz6U9BwAytJQHVQLaAlrrWIM4exE=
+  - num: 3
+    name: dsatsura workstation
+    public_key: TDtAA+dyR76RsRuMghFqI2cFsVniL+mnck1VfOhKXxM=
+  - num: 4
+    name: dmemekh workstation
+    public_key: q0I8FAzcC+xXaqC6AF56B6FCg5NwiMwh30Fql+XJDT8=
+  - num: 5
+    name: dmemekh notebook
+    public_key: mbtCszp4v/d+Uz0RExGGR69UnYQY4ascyPmI9zrsrgg=
+  - num: 6
+    name: ahrechushkin notebook
+    public_key: xByJBjRNmGVfgBlrBswlN89+NClmQ2b8kookwOQUyD0=
+  - num: 7
+    name: ahrechushkin workstation
+    public_key: 9b3Ou9lXROVXBkuYIxlEfCsu+5XpuPEi1wXW74+4yxw=
+  - num: 8
+    name: skuzko notebook
+    public_key: YNcpPcKq2UOK9D6L8PJLaUBLpqRrm3Y28M57pC77WhU=
+  - num: 9
+    name: nuspenskaya notebook
+    public_key: k0DfloDnfySk9PuAIz7fagVxuetrZz2Hd8/n3ddwtEA=
+  - num: 10
+    name: shkilionak notebook
+    public_key: InOfxQlWTZDfagW+jtv0sJWL658JtR5nSLzMFX8MAm0=
+  - num: 11
+    name: dvalashchuk notebook
+    public_key: lYPekbn67KaU/8JAu7n1h+YBpnMZdhFPdhU0MiQlOQ0=
+  - num: 12
+    name: vbahur notebook
+    public_key: YmAXXzqShcDUFFqBtOt63dF3lAXV1Uv+a+/KXUph3z8=
+  - num: 13
+    name: ymikulich notebook
+    public_key: mBXO0SS+RTw29UNVIRpSPGgn1ble6VZpX0PO2ICFPVc=
+  - num: 14
+    name: ypakidzka notebook
+    public_key: 8RjBqOpyVM1DD2tMwG/c1w77cwp7MitgMNFmtc5RiAY=
+  - num: 15
+    name: amusin notebook
+    public_key: EN0ycv5fjeHayOS93KXlozGJrFHs4hKUVrdl4EZ5QDU=
+  - num: 16
+    name: ilezhapekau workstation
+    public_key: 1FUKKZGd9OGQaRMXY5XycDWFXWwVsq1PJvrFfBBLOjw=
+  - num: 17
+    name: dsakovich workstation
+    public_key: hzQdZzfIoBLdrcGfC8TeDJIN164zlsWVB4SYwAlEmhw=
+  - num: 18
+    name: mmarchanka notebook
+    public_key: 2QROAWTG1+FfAM653mpUs5ydGmmwA6tFjRjSju1gF1I=
+  - num: 19
+    name: mmarchanka workstation
+    public_key: kGyTXonuWgAoK7IP41Dw9oVQ8vuif5lF7QJtvA7U1R4=
+  - num: 20
+    name: pnkazlou notebook
+    public_key: QcnyxcXtxCihQcAxoPn/l51dRuvbi8RCHvaQmxsl52Y=
+  - num: 21
+    name: mtushynski notebook
+    public_key: 3m/cd2XENX2AvVFEBNrvi6+BmAJOCI8nE4/XqLTuQ1A= 
+  - num: 22
+    name: mtushynski phone
+    public_key: dVgANLKdPn6MzJQakNfMedGuMXpzoRxS2nN6Dk2lWiI=
+  - num: 23
+    name: dramanouski workstation
+    public_key: MxRZljSM+rXsbdtEd+IwiGOhPNuC41B9HSeIyUtGPjQ=
+  - num: 24
+    name: dramanouski notebook
+    public_key: JZo/2Pb4xAMwULpBwR7fsmfytMDpTzYzIZo4NSL32Ds=
+  - num: 25
+    name: vgalukha notebook
+    public_key: ioBcHNfB9Nqfx8OIhiKzb9LXRI1/fZ1rpyTIjJo90z4=
+  - num: 26
+    name: vzhelezovski notebook
+    public_key: vI0wqH/t92AASfZprHa2529WsJIIVx2G/uuZ1yFKGHs=
+  - num: 27
+    name: dtrubelnik notebook
+    public_key: QBnSBsGswj+ePcsArnTrjVQRSYL9zCIZooyzN7fWNXA=
+  - num: 28
+    name: asafonov workstation
+    public_key: HzAGbjPUE1JdvvbTvHeHHMqcovoudBs1Xm03oX1FQw0=
+  - num: 29
+    name: asafonov notebook
+    public_key: Q9BEVoDqU2Z5mMtIHhwDSMcfpHQcnFHm1AG7xUrypGI=
+  - num: 30
+    name: userafimau notebook
+    public_key: jb8FVG0ZjSKV/C6ER66d4P4Vdakd6SWclZ4Gmz6bvCs=  
+  - num: 31
+    name: userafimau notebook
+    public_key: 9bH/XhFtopLKTew4SiGsAsT5+80L1w4mCkj4/PuMUlg= 
+  - num: 50
+    name: XBY peer location
+    public_key: FGRvMWwUcAqD2LdSN4rVKz6t+b5ukbDVL4H+yq7gPRM=
+  - num: 51
+    name: IBY peer location
+    public_key: pm1P3QxGpbE8CipVNha0zORtmO80W+wCH79E5/6D7Ho=
+  - num: 52
+    name: Seed VM in SBG location
+    public_key: 4ioqDroj1K9RpM3d+Yz9xnLq8vCTElkq6Z26fSe1Fko=
+  - num: 53
+    name: Openshift Registry app in IDC-IBY
+    public_key: zTxMsrXwXw9oHT3rgqeXjJ3TiV7vrIMPnNfAonL/nXs=
+  - num: 54
+    name: Apache Superset app in IDC-IBY
+    public_key: oka1p6igklAxKBJ6Eqd0BhXUNfLhSwjz6xe3JszgPgA=
+- name: team
+  port: 2201
+  ip: 10.254.38.1/25
+  devices:
+  - num: 2
+    name: danikeev workstation
+    public_key: OWo1LtgaCHshGhxqzDPLAjKE/U/BUlN360KJbi73by8=
+  - num: 3
+    name: vsychou workstation
+    public_key: 1sjYQJ7TWUlZ5lkTHXR+wT/ynXHZjfx84oAbqdjv/mI=
+  - num: 4
+    name: vsychou homestation
+    public_key: xg0vTOoPyIIFA/W6Ds0CzzbnUBWxOo+63uvc92otzSk=
+  - num: 5
+    name: isiliava workstation
+    public_key: HCXr7FWHuTmCK38/Ckdvftdz0Q/vGDG46IlLVEr5jnw=
+  - num: 6
+    name: asavenia homestation
+    public_key: htQAuD6arPxNTDQOvtOGRkEDT13ZmzBRX66dK6a7C0Q=
+peer_vpn: []
+# NAT for Location resources
+nat:
+  subnet: 10.253.38.128/25
+  map:
+  - num: 2
+    toaddr: 10.254.1.100
+    host: engine-ovirt
+  - num: 3
+    toaddr: 10.254.1.11
+    host: ceph01
+  - num: 4
+    toaddr: 10.254.1.12
+    host: ceph02
+  - num: 5
+    toaddr: 10.254.1.13
+    host: ceph03
+  - num: 6
+    toaddr: 10.254.1.21
+    host: ovih01
+  - num: 7
+    toaddr: 10.254.1.22
+    host: ovih02
+  - num: 8
+    toaddr: 10.254.1.23
+    host: ovih03
+  - num: 9
+    toaddr: 10.254.1.24
+    host: ovih04
+  - num: 10
+    toaddr: 10.254.20.12
+    host: infra-1
+  - num: 11
+    toaddr: 10.254.20.13
+    host: infra-2
+  - num: 12
+    toaddr: 10.254.20.14
+    host: infra-3
+  - num: 13
+    toaddr: 198.18.0.2
+    host: cloudgw
+  - num: 14
+    toaddr: 10.254.28.10
+    host: openshift-sys
+  - num: 15
+    toaddr: 10.254.20.15
+    host: hardware
+  - num: 16
+    toaddr: 10.254.20.41
+    host: display-1
+  - num: 17
+    toaddr: 10.254.20.17
+    host: code
+  - num: 18
+    toaddr: 10.254.20.28
+    host: logs
+  - num: 19
+    toaddr: 10.254.20.19
+    host: zabbix
+  - num: 20
+    toaddr: 10.254.20.34
+    host: compute-dev
+  - num: 21
+    toaddr: 10.254.4.21
+    host: ovih01-display
+  - num: 22
+    toaddr: 10.254.4.22
+    host: ovih02-display
+  - num: 23
+    toaddr: 10.254.4.23
+    host: ovih03-display
+  - num: 24
+    toaddr: 10.254.4.24
+    host: ovih03-display
+  - num: 25
+    toaddr: 10.254.20.26
+    host: crm
+  - num: 26
+    toaddr: 10.254.20.44
+    host: crm-dev
+  - num: 27
+    toaddr: 10.254.1.120
+    host: engine-ovirt-tby
+  - num: 28
+    toaddr: 10.254.28.10
+    host: okd-lab-upi
+  - num: 29
+    toaddr: 10.254.28.23
+    host: okd-ocp-dev
