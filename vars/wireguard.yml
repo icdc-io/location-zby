@@ -98,7 +98,10 @@ vpn:
     public_key: jb8FVG0ZjSKV/C6ER66d4P4Vdakd6SWclZ4Gmz6bvCs=  
   - num: 31
     name: userafimau notebook
-    public_key: 9bH/XhFtopLKTew4SiGsAsT5+80L1w4mCkj4/PuMUlg= 
+    public_key: 9bH/XhFtopLKTew4SiGsAsT5+80L1w4mCkj4/PuMUlg=
+  - num: 32
+    name: dmemekh okd-setup
+    public_key: Wd5UPiUGEkP/pE6Wdth9/ZhqsBe73GCKazhh0fxzZl4=
   - num: 50
     name: XBY peer location
     public_key: FGRvMWwUcAqD2LdSN4rVKz6t+b5ukbDVL4H+yq7gPRM=
@@ -114,9 +117,6 @@ vpn:
   - num: 54
     name: Apache Superset app in IDC-IBY
     public_key: oka1p6igklAxKBJ6Eqd0BhXUNfLhSwjz6xe3JszgPgA=
-  - num: 55
-    name: dmemekh okd-setup
-    public_key: Wd5UPiUGEkP/pE6Wdth9/ZhqsBe73GCKazhh0fxzZl4=
 - name: team
   port: 2201
   ip: 10.254.38.1/25
