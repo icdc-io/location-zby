@@ -158,7 +158,7 @@ dns-external ansible_host=178.172.238.130
 #
 # SYS account cloudgw has special settings
 [sys_cloudgw_account]
-cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6
+cloudgw-dde00c83 ansible_host=198.18.240.5 cloudgw_id=dde00c83-50ac-5310-bd96-896986a06eb6 router_name=zby_sys_default
 # New Cloud Gateway will be automatically added here
 [new_cloudgw_account]
 [new_cloudgw_account:children]
