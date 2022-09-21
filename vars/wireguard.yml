@@ -225,3 +225,6 @@ nat:
   - num: 29
     toaddr: 10.254.28.23
     host: okd-ocp-dev
+  - num: 30
+    toaddr: 10.254.20.33
+    host: ceph-dev
