@@ -120,6 +120,9 @@ vpn:
   - num: 55
     name: Dmitry Pautaran Workstation (trainee)
     public_key: MaEx+6YqRb7nLKEd0H4lXXHTR38fUz8zLDd/vr2Iv0k=
+  - num: 56
+    name: Yahor Palatau workstation
+    public_key: Bpb//KNx8T6RE1qLAyTgW76PCD5tG7MrK1TD+PmO4Hk=
 - name: team
   port: 2201
   ip: 10.254.38.1/25
